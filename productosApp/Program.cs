@@ -5,7 +5,7 @@ string keyProductosContext = "productosBD";
 var productosConnectionString = builder.Configuration.GetConnectionString(keyProductosContext);
 
 // Add services to the container.
-builder.Services.AddDbContext<ProductosContext>(options => options.UseSqlServer(productosConnectionString));
+builder.Services.AddDbContext<BodegaContext>(options => options.UseSqlServer(productosConnectionString));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

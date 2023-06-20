@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 namespace productosApp.Models
 {
-    public class ProductosContext:DbContext
+    public class BodegaContext:DbContext
     {
-        public ProductosContext(DbContextOptions<ProductosContext> options) : base(options) { }
+        public BodegaContext(DbContextOptions<BodegaContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
