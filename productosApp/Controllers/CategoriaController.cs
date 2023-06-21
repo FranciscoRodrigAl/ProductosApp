@@ -15,5 +15,11 @@ namespace productosApp.Controllers
         {
             return View();
         }
+
+        public IActionResult Lista()
+        {
+
+            return View();
+        }
     }
 }
