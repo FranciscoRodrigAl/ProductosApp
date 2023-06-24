@@ -1,24 +1,25 @@
 ﻿@model List<Producto>
-
-    <table class="table">
+<div class="col-6" style="margin:auto">
+    <table class="table table-bordered border-primary">
         <thead>
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
-                <th scope ="col">Precio</th>
+                <th scope="col">Precio</th>
                 <th scope="col">Categoría</th>
             </tr>
         </thead>
-       <tbody>
-        @foreach(var p in Model)
-        {
-            <tr>
-                <td>@p.Id</td>
-                <td>@p.Nombre</td>
-                <td>@p.Precio</td>
-                <td>@p.Categoria.Nombre</td>
-            </tr>    
-        }
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.Id</td>
+                    <td>@p.Nombre</td>
+                    <td>@p.Precio.ToString("c2")</td>
+                    <td>@p.Categoria.Nombre</td>
+                </tr>
+            }
         </tbody>
-
     </table>
+</div>
+

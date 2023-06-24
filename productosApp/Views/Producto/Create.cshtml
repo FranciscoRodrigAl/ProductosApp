@@ -10,15 +10,23 @@
             @Html.LabelFor(l => l.Precio)
             @Html.TextBoxFor(t => t.Precio, new {@class="form-control"})
         </div>
-        <div class="mb-3">
-            @Html.LabelFor(l => l.Categoria)
-            @Html.DropDownListFor(d => d.CategoriaId,new SelectList(ViewBag.Categories,"Id","Nombre"), new {@class="form-select"})
-        </div>
-        <div class="mb-3 text-danger">
-            @Html.ValidationSummary()
-        </div>
-
-        <button class="btn btn-primary" type="submit">Crear</button>
+        @if(ViewBag.Categories == null || ViewBag.Categories.Count == 0)
+        {
+            <div class="mb-3">
+                <h3>No hay registros disponibles de Categorías, genere categorías para asociar a nuevos productos</h3>
+            </div>
+        }
+        else
+        {
+            <div class="mb-3">
+                @Html.LabelFor(l => l.Categoria)
+                @Html.DropDownListFor(d => d.CategoriaId,new SelectList(ViewBag.Categories,"Id","Nombre"), new {@class="form-select"})
+            </div>
+            <div class="mb-3 text-danger">
+                @Html.ValidationSummary()
+            </div>
+            <button class="btn btn-primary" type="submit">Crear</button>
+        }
     }
 </div>
 
