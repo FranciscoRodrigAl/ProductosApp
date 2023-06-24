@@ -1,14 +1,16 @@
 ﻿
 @model productosApp.Models.Categoria
 
-div class="col-6" style="margin:auto">
-    @using (Html.BeginForm("Nuevo", "Home", FormMethod.Post))
+<div class="col-6" style="margin:auto">
+    @using (Html.BeginForm("Guardar", "Categoria", FormMethod.Post))
     {
         <div class="mb-3 mt-3">
             @Html.LabelFor(Model => Model.Nombre)
             @Html.TextBoxFor(Model => Model.Nombre, new { @class="form-control" })
         </div>
-
+        <div class="mb-3 text-danger">
+            @Html.ValidationSummary()
+        </div>
        <button type="submit" class="btn btn-primary">Guardar</button>
     }
 </div>

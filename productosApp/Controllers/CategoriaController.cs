@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using productosApp.Models;
 
 namespace productosApp.Controllers
@@ -6,20 +7,35 @@ namespace productosApp.Controllers
     public class CategoriaController : Controller
     {
         public BodegaContext context;
-        CategoriaController(BodegaContext context)
+        public CategoriaController(BodegaContext context)
         {
             this.context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Nueva()
         {
-            return View();
+            Categoria newCategoria = new Categoria();
+            return View(newCategoria);
+        }
+
+        public IActionResult Guardar(Categoria categoria)
+        {
+            if(ModelState.IsValid)
+            {
+                this.context.Categories.Add(categoria);
+                this.context.SaveChanges();
+                return RedirectToAction("Lista");
+            }
+            else
+            {
+                return View("Nueva",categoria);
+            }
         }
 
         public IActionResult Lista()
         {
-
-            return View();
+            List<Categoria> lista = this.context.Categories.Include(c => c.Productos).ToList();
+            return View(lista);
         }
     }
 }

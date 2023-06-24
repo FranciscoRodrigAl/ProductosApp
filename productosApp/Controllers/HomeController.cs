@@ -15,6 +15,7 @@ namespace productosApp.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Title = "Bodega";
             return View();
         }
 

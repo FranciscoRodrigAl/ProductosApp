@@ -1,22 +1,24 @@
-﻿@model List<productosApp.Models.Producto>
+﻿@model List<productosApp.Models.Categoria>
 
 <div style="margin:auto">
    <table class="table table-bordered border-primary">
     <thead>
         <th>Nombre</th>
-        <th>Precio</th>
-        <th>Categoria</th>
+        <th>N° Productos</th>
     </thead>
     <tbody>
-            @foreach (var Producto in Model) 
+            @foreach (var categoria in Model) 
             {
-          <tr>
-                <td>@Producto.Nombre</td>
-                <td>@Producto.Precio</td>
-                <td>@Producto.Categoria</td>
-                
-          </tr>
-        }
+                <tr>
+                    <td>@categoria.Nombre</td>
+                    @if(categoria.Productos != null)
+                    {
+                        <td>@categoria.Productos.Count()</td>              
+                    }else{
+                        <td>Sin productos</td>
+                    }
+                </tr>
+            }
     </tbody>
 </table>
 </div>

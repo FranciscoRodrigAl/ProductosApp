@@ -1,0 +1,24 @@
+﻿@model Producto
+<div class="col-6" style="margin:auto">
+    @using (Html.BeginForm("Save", "Producto", FormMethod.Post))
+    {
+        <div class="mb-3">
+            @Html.LabelFor(l => l.Nombre)
+            @Html.TextBoxFor(t => t.Nombre, new {@class="form-control"})
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(l => l.Precio)
+            @Html.TextBoxFor(t => t.Precio, new {@class="form-control"})
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(l => l.Categoria)
+            @Html.DropDownListFor(d => d.CategoriaId,new SelectList(ViewBag.Categories,"Id","Nombre"), new {@class="form-select"})
+        </div>
+        <div class="mb-3 text-danger">
+            @Html.ValidationSummary()
+        </div>
+
+        <button class="btn btn-primary" type="submit">Crear</button>
+    }
+</div>
+

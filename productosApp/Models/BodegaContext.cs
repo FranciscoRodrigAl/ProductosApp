@@ -13,5 +13,8 @@ namespace productosApp.Models
                 .HasForeignKey(p => p.CategoriaId);
         }
 
+
+        public DbSet<Categoria> Categories { get; set; }
+        public DbSet<Producto> Products { get; set; }
     }
 }
